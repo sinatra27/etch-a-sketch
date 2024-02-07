@@ -1,0 +1,22 @@
+/****************************************
+/* LAYOUT
+/***************************************/
+body {
+    display: flex;
+    justify-content: center;
+
+}
+
+/***** CONTAINER *****/
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 352px;  /*temp width for 16x16 grid*/
+}
+.square {
+    height: 20px;
+    width: 20px;
+    background-color: blue;
+    border: 1px solid black;
+}
+

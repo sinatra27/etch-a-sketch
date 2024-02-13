@@ -9,7 +9,7 @@
 
     <body>
         <header>
-
+            <h1>ETCH-A-SKETCH</h1>
         </header>
         
         <main>
@@ -17,6 +17,13 @@
 
             </div>
         </main>
+        <section>
+            <div class="sliderSize">
+                <h3>Grid Size</h3>
+                <input type="range" min="1" max="100" value="36" oninput="rangeValue.innerText = this.value" onchange="createGrid(this.value)" class="slider" id="rangeSize">
+                <p id="rangeValue">16</p>
+            </div>
+        </section>
     </body>
 
     <script src="./script.js"></script>

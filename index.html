@@ -17,11 +17,32 @@
 
             </div>
         </main>
-        <section>
+        <section class="settings">
             <div class="sliderSize">
                 <h3>Grid Size</h3>
-                <input type="range" min="1" max="100" value="36" oninput="rangeValue.innerText = this.value" onchange="createGrid(this.value)" class="slider" id="rangeSize">
-                <p id="rangeValue">16</p>
+                <input type="range" min="1" max="100" value="16" oninput="gridSize.innerText = `${this.value} x ${this.value}`" onchange="createGrid(this.value)" id="gridSlider">
+                <p id="gridSize">16 x 16</p>
+            </div>
+            <div class="backgroundColor">
+                <h3>Background Color</h3>
+                <input type="color" value="#ffffff" onchange="bgColorUpdate(this.value)" id="bgColorSelect">
+            </div>
+            <div class="penColor">
+                <h3>Pen Color</h3>
+                <input type="color" value="#696969" id="penColorSelect">
+                <button id="rainbowBtn" onclick="rainbowToggle()">Rainbow Mode</button>
+            </div>
+            <div class="gridlines">
+                <h3>Gridlines</h3>
+                <button id="gridlinesBtn" onclick="gridlinesToggle()">On/Off</button>
+            </div>
+            <div class="eraser">
+                <h3>Eraser</h3>
+                <button id="eraserBtn" onclick="eraserToggle()">On/Off</button>
+            </div>
+            <div class="clear">
+                <h3>Clear Grid</h3>
+                <button id="clearBtn" onclick="clearGrid()">Erase All</button>
             </div>
         </section>
     </body>

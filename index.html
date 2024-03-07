@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Etch-a-Sketch</title>
     
         <link rel="stylesheet" href="./styles.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -17,34 +22,45 @@
 
             </div>
         </main>
-        <section class="settings">
-            <div class="sliderSize">
+
+        <section class="sliderSize">
                 <h3>Grid Size</h3>
-                <input type="range" min="1" max="100" value="16" oninput="gridSize.innerText = `${this.value} x ${this.value}`" onchange="createGrid(this.value)" id="gridSlider">
+                <input type="range" id="gridSlider" min="1" max="100" value="16" oninput="gridSize.innerText = `${this.value} x ${this.value}`" onchange="createGrid(this.value)">
                 <p id="gridSize">16 x 16</p>
-            </div>
+        </section>
+
+        <section class="settings">
             <div class="backgroundColor">
-                <h3>Background Color</h3>
-                <input type="color" value="#ffffff" onchange="bgColorUpdate(this.value)" id="bgColorSelect">
+                <!-- <h3>Background Color</h3> -->
+                <input type="color" id="bgColorSelect" value="#ffffff" onchange="bgColorUpdate(this.value)">
+                <label for="bgColorSelect" id="bgColorLabel">Background Color</label>
             </div>
             <div class="penColor">
-                <h3>Pen Color</h3>
-                <input type="color" value="#696969" onchange="penColorUpdate(this.value)" id="penColorSelect">
+                <!-- <h3>Pen Color</h3> -->
+                <input type="color" id="penColorSelect" value="#696969" onchange="penColorUpdate(this.value)">
+                <label for="penColorSelect" id="penColorLabel">Pen Color</label>
+            </div>
+            <div class="rainbowMode">
+                <!-- <h3>Rainbow Mode</h3> -->
                 <button id="rainbowBtn" onclick="rainbowToggle()">Rainbow Mode</button>
             </div>
             <div class="gridlines">
-                <h3>Gridlines</h3>
-                <button id="gridlinesBtn" onclick="gridlinesToggle()">On/Off</button>
+                <!-- <h3>Gridlines</h3> -->
+                <button id="gridlinesBtn" onclick="gridlinesToggle()">Gridlines</button>
             </div>
             <div class="eraser">
-                <h3>Eraser</h3>
-                <button id="eraserBtn" onclick="eraserToggle()">On/Off</button>
+                <!-- <h3>Eraser</h3> -->
+                <button id="eraserBtn" onclick="eraserToggle()">Eraser</button>
             </div>
             <div class="clear">
-                <h3>Clear Grid</h3>
-                <button id="clearBtn" onclick="clearGrid()">Erase All</button>
+                <!-- <h3>Clear Grid</h3> -->
+                <button id="clearBtn" onclick="clearGrid()">Clear</button>
             </div>
         </section>
+
+        <footer>
+            <h6>Copyright </h6>
+        </footer>
     </body>
 
     <script src="./script.js"></script>

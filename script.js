@@ -1,24 +1,26 @@
-// Initialize a container for the square divs
+// Select container for square divs
 const container = document.querySelector('.container');
 
-// Declare variable for the current selected grid background color
-let bgColor = document.getElementById('bgColorSelect').value;
+// Select background colors for color pickers
+const bgColorPicker = document.querySelector('#bgColorLabel');
+const penColorPicker = document.querySelector('#penColorLabel');
 
-// Declare variable for the current selected pen color
+// Declare variables for current selected grid background color and pen color
+let bgColor = document.getElementById('bgColorSelect').value;
 let penColor = document.getElementById('penColorSelect').value;
 
-// Function to create grid while passing in the input size by the user
+// Create grid with passed in input size selected
 function createGrid(size) {
     container.style.backgroundColor = bgColor;
     // Clear grid when grid size is changed
     container.replaceChildren();
-    // Use For loops to create size x size grid of square divs, add divs under the container
+    // Create size x size grid of square divs, add divs under the container
     for (let i = 0; i < size; i++) {
         const column = document.createElement('div');
         column.classList.add('column');
         for (let j = 0; j < size; j++) {
             const square = document.createElement('div');
-            if (!gridlinesOn) square.style.border = 'none';
+            if (gridlinesOn) square.style.border = '1px solid #696969';
             square.classList.add('square');
             column.appendChild(square);
         }
@@ -30,13 +32,15 @@ function createGrid(size) {
 function bgColorUpdate(bgColorValue) {
     container.style.backgroundColor = bgColorValue;
     bgColor = bgColorValue;
-    mouseDown = false;
+
+    bgColorPicker.style.backgroundColor = bgColor;
 }
 
 // Update pen color
 function penColorUpdate(penColorValue) {
     penColor = penColorValue;
-    // gridlinesToggle();              // option to change grid line color to match pen color?
+
+    penColorPicker.style.backgroundColor = penColor;
 }
 
 // Rainbow mode (random RGB pen color)
@@ -47,7 +51,7 @@ function rainbowToggle() {
 }
 
 // Gridlines toggle on/off
-let gridlinesOn = true;
+let gridlinesOn = false;            // Declare variable for default gridlines off
 function gridlinesToggle() {
     gridlinesOn = !gridlinesOn;
     if (!gridlinesOn) {
@@ -55,7 +59,6 @@ function gridlinesToggle() {
     }
     else {
         Array.from(document.querySelectorAll('.square')).forEach((el) => el.style.border = '1px solid #696969');
-        // Array.from(document.querySelectorAll('.square')).forEach((el) => el.style.border = '1px solid ' + penColor);
     }     
 }
 
@@ -80,13 +83,14 @@ let changeColor = document.querySelector('div');
 changeColor.addEventListener('mouseover', sketch);
 changeColor.addEventListener('mousedown', sketch);
 
+// Change color of selected square
 function sketch(e) {
-        // Use conditional for when mouse is not pressed down
+        // Conditional when mouse is not pressed down
         if (e.type === 'mouseover' && !mouseDown) return;
-        // Use conditional for when erasor or rainbow mode is selected based on user's choice
+        // Conditional when erasor or rainbow mode is selected
         if (eraserOn) e.target.style.backgroundColor = null;
         else if (rainbowMode) {
-            // Randomize RGB values for square colors. RGB color range is 0-255
+            // Randomize RGB values for square colors. RGB color range: 0-255
             r = Math.floor(Math.random() * 255);        
             g = Math.floor(Math.random() * 255);
             b = Math.floor(Math.random() * 255);

@@ -80,7 +80,7 @@ function clearGrid() {
     Array.from(document.querySelectorAll('.square')).forEach((el) => el.style.backgroundColor = null);
 }
 
-// Declare variable for mouse down and up, set initital value to false
+// Declare variable for mouse down, set initital value to false
 let mouseDown = false;
 document.body.onmouseup = () => (mouseDown = false); 
 document.body.onmousedown = () => (mouseDown = true);

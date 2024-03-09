@@ -1,9 +1,13 @@
 // Select container for square divs
 const container = document.querySelector('.container');
 
-// Select background colors for color pickers
+// Select color pickers and buttons for background colors
 const bgColorPicker = document.querySelector('#bgColorLabel');
 const penColorPicker = document.querySelector('#penColorLabel');
+const rainbowButton = document.querySelector('#rainbowBtn');
+const gridlinesButton = document.querySelector('#gridlinesBtn');
+const eraserButton = document.querySelector('#eraserBtn');
+const clearButton = document.querySelector('#clearBtn');
 
 // Declare variables for current selected grid background color and pen color
 let bgColor = document.getElementById('bgColorSelect').value;
@@ -32,14 +36,12 @@ function createGrid(size) {
 function bgColorUpdate(bgColorValue) {
     container.style.backgroundColor = bgColorValue;
     bgColor = bgColorValue;
-
     bgColorPicker.style.backgroundColor = bgColor;
 }
 
 // Update pen color
 function penColorUpdate(penColorValue) {
     penColor = penColorValue;
-
     penColorPicker.style.backgroundColor = penColor;
 }
 
@@ -48,24 +50,29 @@ let r, g, b;                        // Declare variables for random RGB values
 let rainbowMode = false;
 function rainbowToggle() {
     rainbowMode = !rainbowMode;
+    if (rainbowMode) rainbowButton.style.background = 'linear-gradient(in hsl longer hue 135deg, cyan 0 0)';
+    else rainbowButton.style.background = 'transparent';
 }
 
 // Gridlines toggle on/off
 let gridlinesOn = false;            // Declare variable for default gridlines off
 function gridlinesToggle() {
     gridlinesOn = !gridlinesOn;
-    if (!gridlinesOn) {
-        Array.from(document.querySelectorAll('.square')).forEach((el) => el.style.border = 'none');
-    }
-    else {
+    if (gridlinesOn) {
         Array.from(document.querySelectorAll('.square')).forEach((el) => el.style.border = '1px solid #696969');
+        gridlinesButton.style.backgroundImage = 'linear-gradient(to right, #696969 1px, transparent 1px), linear-gradient(to bottom, #696969 1px, transparent 1px)';
+    } else {
+        Array.from(document.querySelectorAll('.square')).forEach((el) => el.style.border = 'none');
+        gridlinesButton.style.backgroundImage = 'none';
     }     
 }
 
 // Eraser toggle on/off
 let eraserOn = false;
 function eraserToggle() {
-    eraserOn = !eraserOn;    
+    eraserOn = !eraserOn;
+    if (eraserOn) eraserButton.style.background = '#fcee0a';
+    else eraserButton.style.background = 'transparent';
 }
 
 // Clear grid while keeping current settings

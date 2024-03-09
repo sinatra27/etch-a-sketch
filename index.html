@@ -7,59 +7,49 @@
     
         <link rel="stylesheet" href="./styles.css">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/25334ffcc1.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
         <header>
-            <h1>ETCH-A-SKETCH</h1>
+            <h1>Etch-a-Sketch</h1>
         </header>
         
         <main>
-            <div class="container">
-
-            </div>
+            <div class="container"></div>
         </main>
 
         <section class="sliderSize">
-                <h3>Grid Size</h3>
-                <input type="range" id="gridSlider" min="1" max="100" value="16" oninput="gridSize.innerText = `${this.value} x ${this.value}`" onchange="createGrid(this.value)">
-                <p id="gridSize">16 x 16</p>
+            <h3>Grid Size</h3>
+            <input type="range" id="gridSlider" min="1" max="100" value="16" oninput="gridSize.innerText = `${this.value} x ${this.value}`" onchange="createGrid(this.value)">
+            <p id="gridSize">16 x 16</p>
         </section>
 
         <section class="settings">
             <div class="backgroundColor">
-                <!-- <h3>Background Color</h3> -->
-                <input type="color" id="bgColorSelect" value="#ffffff" onchange="bgColorUpdate(this.value)">
+                <input type="color" id="bgColorSelect" value="#eaeaea" onchange="bgColorUpdate(this.value)">
                 <label for="bgColorSelect" id="bgColorLabel">Background Color</label>
             </div>
             <div class="penColor">
-                <!-- <h3>Pen Color</h3> -->
                 <input type="color" id="penColorSelect" value="#696969" onchange="penColorUpdate(this.value)">
                 <label for="penColorSelect" id="penColorLabel">Pen Color</label>
             </div>
             <div class="rainbowMode">
-                <!-- <h3>Rainbow Mode</h3> -->
                 <button id="rainbowBtn" onclick="rainbowToggle()">Rainbow Mode</button>
             </div>
             <div class="gridlines">
-                <!-- <h3>Gridlines</h3> -->
                 <button id="gridlinesBtn" onclick="gridlinesToggle()">Gridlines</button>
             </div>
             <div class="eraser">
-                <!-- <h3>Eraser</h3> -->
                 <button id="eraserBtn" onclick="eraserToggle()">Eraser</button>
             </div>
             <div class="clear">
-                <!-- <h3>Clear Grid</h3> -->
                 <button id="clearBtn" onclick="clearGrid()">Clear</button>
             </div>
         </section>
 
-        <footer>
-            <h6>Copyright </h6>
+        <footer class="footer">
+            <p>Built by <a href="https://github.com/sinatra27" target="_blank">sinatra27</a> © 2024 &nbsp;<a href="https://github.com/sinatra27/etch-a-sketch" target="_blank"><i class="fa-brands fa-github fa-xl"></i></a></p>
         </footer>
     </body>
 
